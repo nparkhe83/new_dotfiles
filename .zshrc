@@ -15,7 +15,10 @@ setopt PROMPT_SUBST
 
 # Load dotfiles:
 # zprompt,aliases,functions,envt_vars,paths,zsh_plugins
-for file in ~/.{aliases}; do
-  [ -r "$file" ] && [ -f "$file" ] && source "$file"
+files=(aliases)
+for file in ${files[@]}; do
+  file_path="~/.$file"
+  echo $file_path
+  [ -r "$file_path" ] && [ -f "$file_path" ] && source "$file_path"
 done
 unset file
